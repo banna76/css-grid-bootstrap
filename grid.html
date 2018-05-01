@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+body{
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  grid-gap: 10px 10px;
+  grid-auto-rows: minmax(50px,auto);
+}
+
+header{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    grid-column: 1/17;
+    padding: 10px;
+}
+
+titlebox{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    grid-column: 2/16;
+    padding: 10px;
+    text-align: center;
+}
+
+grid-item{
+  text-align: center;
+  grid-column: 3/15;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  padding: 20px;
+}
+
+grid-img{
+  text-align: center;
+  grid-column: 4/14;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  padding: 20px;
+}
+
+footer{
+  text-align: center;
+  grid-column: 1/17;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
+item{
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
+</style>
+<script>
+window.onload = function(){
+
+   $.get("data/webdata.json").then(function(data){
+     $('item[load-from-json]').html("<h4>"+data.title+"</h4><p>"+data.dsc+"</p><a href='#'>"+data.price+"</a>");
+     //console.log(data.title);
+   });
+}
+</script>
+</head>
+<body>
+<div class="container">
+  <header><h1>SnowTrex </h1></header>
+  <titlebox><h3> SnowTres Travel Company</h3></titlebox>
+  <grid-item>
+    <item load-from-json>
+      <h4>Holyday Tour</h4>
+      <p>
+        Familien Skiurlaub Kurzurlaub im Schnee Last-Minute & More Low Cost Skireisen Luxus Skiurlaub...
+      </p>
+      <a href="#">ab 299&euro;</a>
+    </item>
+    <item>
+      <h4>Holyday Tour</h4>
+      <p>
+       Familien Skiurlaub Kurzurlaub im Schnee Last-Minute & More Low Cost Skireisen Luxus Skiurlaub...
+      </p>
+      <a href="#">ab 299&euro;</a>
+    </item>
+    <item>
+      <h4>Holyday Tour</h4>
+      <p>
+      Familien Skiurlaub Kurzurlaub im Schnee Last-Minute & More Low Cost Skireisen Luxus Skiurlaub...
+      </p>
+      <a href="#">ab 299&euro;</a>
+    </item>
+    <item>
+      <h4>Holyday Tour</h4>
+      <p>
+      Familien Skiurlaub Kurzurlaub im Schnee Last-Minute & More Low Cost Skireisen Luxus Skiurlaub...
+      </p>
+      <a href="#">ab 299&euro;</a>
+    </item>
+   </grid-item>
+
+   <grid-img>
+     <img src="https://www.publicdomainpictures.net/pictures/240000/velka/boardwalk-destruction.jpg" width="400px"/>
+     <img src="https://www.publicdomainpictures.net/pictures/240000/velka/boardwalk-destruction.jpg" width="400px"/>
+   </grid-img>
+
+   <footer>
+     <a href="#">Imprint</a>
+     <a href="#">Copyright</a>
+     <a href="#">About us</a>
+   </footer>
+</div>
+
+</body>
+</html>
